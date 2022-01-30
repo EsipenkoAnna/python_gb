@@ -1,4 +1,4 @@
-def Percents_choise(numb: int):
+def Percents_choise(numb: int) -> str:
  if numb == 1:
     choise = f'{numb} Процент'
  elif numb == 2:
@@ -8,6 +8,4 @@ def Percents_choise(numb: int):
     return choise
 
  for numb in range (1, 6):
-    a = Percents_choise(numb)
-    print(a)
-print (124)
+    print(Percents_choise(numb))
