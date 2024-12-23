@@ -11,13 +11,20 @@ def run(playwright: Playwright) -> None:
     #принимаем все куки
     page.get_by_role("button", name="ПРИНЯТЬ").click()
     #находим и кликаем по первой кнопке Выбрать
+    page.on("dialog", lambda dialog: dialog.accept())
     page.locator(".button__label").first.click()
+
+    #page.get_by_text("Палуба 5").click(timeout=0)
+    #page.locator("[g:not(.disabled)]").lick(timeout=0)c4
+    row_locator = page.locator("tr")
+    row_locator(filter(has=page.locator("g").filter(has_not=page.locator(".disabled")))).first.click(timeout=0)
+
     page.wait_for_load_state()
     #пытаемся в попапе выбрать каюту
-    page.on("dialog", lambda  dialog: dialog.accept())
-    page.evaluate('(() => {window.waitForPrintDialog = new Promise(f => window.print = f);})()')
-    page.locator("[g:not(.disabled)]").click()
-    page.waitForFunction('window.waitForPrintDialog')
+   # page.on("dialog", lambda  dialog: dialog.accept())
+   # page.evaluate('(() => {window.waitForPrintDialog = new Promise(f => window.print = f);})()')
+
+    #page.waitForFunction('window.waitForPrintDialog')
 
 
 
