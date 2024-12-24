@@ -15,10 +15,10 @@ def run(playwright: Playwright) -> None:
     page.locator(".button__label").first.click()
 
     #page.get_by_text("Палуба 5").click(timeout=0)
-    #page.locator("[g:not(.disabled)]").lick(timeout=0)c4
-    row_locator = page.locator("tr")
-    row_locator(filter(has=page.locator("g").filter(has_not=page.locator(".disabled")))).first.click(timeout=0)
-
+    page.locator("[g:not(.disabled)]").сlick(timeout=0)
+     #row_locator = page.locator("tr")
+    #row_locator(filter(has=page.locator("g").filter(has_not=page.locator(".disabled")))).first.click(timeout=0)
+    page.locator("div:nth-child(3) > .injectable > g path:nt>  .disabled").first.click()
     page.wait_for_load_state()
     #пытаемся в попапе выбрать каюту
    # page.on("dialog", lambda  dialog: dialog.accept())
